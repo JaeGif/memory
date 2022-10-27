@@ -6,11 +6,11 @@ import CardContainer from '../CardContainer/CardContainer';
 import { useState } from 'react';
 import defaultCardArray from './defaults';
 import shuffle from '../shuffle';
-import { click } from '@testing-library/user-event/dist/click';
 
 export default function Main() {
   const [isLost, setIsLost] = useState(false);
   const [score, setScore] = useState(0);
+  const [clicked, setClicked] = useState([]);
 
   let [cardArray, setCardArray] = useState(defaultCardArray);
 
@@ -18,8 +18,11 @@ export default function Main() {
     setCardArray([...shuffle(cardArray)]);
   };
 
-  const onCardClick = () => {
+  const onCardClick = (key) => {
+    /*     setClicked([...clicked, key]);
+     */
     randomizeCards();
+    setScore(score + 1);
 
     console.log('made it dad');
     console.log(score);
@@ -29,7 +32,6 @@ export default function Main() {
     // increment score and
     // randomize cards
   };
-  const wasClicked = (cardID) => {};
 
   return (
     <div>

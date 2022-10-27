@@ -4,7 +4,7 @@ import styles from '../CardContainer/CardContainer.module.css';
 
 const CardContainer = (props) => {
   const cards = props.cardArray.map((char) => (
-    <Card onClick={props.onClick} key={char.id} card={char} />
+    <Card onClick={props.onClick} key={char.id} id={char.id} card={char} />
   ));
 
   return <div className={styles.cardContainers}>{cards}</div>;
