@@ -4,7 +4,7 @@ import styles from './Card.module.css';
 
 export default function Card({ card }) {
   return (
-    <div>
+    <div className={styles.cardWrapper}>
       <img className={styles.person} src={card.url} alt='missing person' />
       <h2 className={styles.name}>{card.name}</h2>
     </div>

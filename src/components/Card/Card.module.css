@@ -4,3 +4,9 @@
 .name {
   font-size: 1rem;
 }
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

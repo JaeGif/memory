@@ -17,22 +17,22 @@ import sixteenURL from '../../assets/cardAssets/16.png';
 import seventeenURL from '../../assets/cardAssets/17.png';
 
 const cardOne = { url: oneURL, name: 'John', id: 1 };
-const cardTwo = { url: twoURL, name: 'John', id: 2 };
-const cardThree = { url: threeURL, name: 'John', id: 3 };
-const cardFour = { url: fourURL, name: 'John', id: 4 };
-const cardFive = { url: fiveURL, name: 'John', id: 5 };
-const cardSix = { url: sixURL, name: 'John', id: 6 };
-const cardSeven = { url: sevenURL, name: 'John', id: 7 };
-const cardEight = { url: eightURL, name: 'John', id: 8 };
-const cardNine = { url: nineURL, name: 'John', id: 9 };
-const cardTen = { url: tenURL, name: 'John', id: 10 };
-const cardEleven = { url: elevenURL, name: 'John', id: 11 };
-const cardTwelve = { url: twelveURL, name: 'John', id: 12 };
-const cardThirteen = { url: thirteenURL, name: 'John', id: 13 };
-const cardFourteen = { url: fourteenURL, name: 'John', id: 14 };
-const cardFifteen = { url: fifteenURL, name: 'John', id: 15 };
-const cardSixteen = { url: sixteenURL, name: 'John', id: 16 };
-const cardSeventeen = { url: seventeenURL, name: 'John', id: 17 };
+const cardTwo = { url: twoURL, name: 'Jill', id: 2 };
+const cardThree = { url: threeURL, name: 'Jaime', id: 3 };
+const cardFour = { url: fourURL, name: 'Jen', id: 4 };
+const cardFive = { url: fiveURL, name: 'Jae', id: 5 };
+const cardSix = { url: sixURL, name: 'Jan', id: 6 };
+const cardSeven = { url: sevenURL, name: 'Jon', id: 7 };
+const cardEight = { url: eightURL, name: 'Joydeb', id: 8 };
+const cardNine = { url: nineURL, name: 'Jello', id: 9 };
+const cardTen = { url: tenURL, name: 'Jemma', id: 10 };
+const cardEleven = { url: elevenURL, name: 'Jeremiah', id: 11 };
+const cardTwelve = { url: twelveURL, name: 'Johnny', id: 12 };
+const cardThirteen = { url: thirteenURL, name: 'Jahn', id: 13 };
+const cardFourteen = { url: fourteenURL, name: 'Joi', id: 14 };
+const cardFifteen = { url: fifteenURL, name: 'Jay', id: 15 };
+const cardSixteen = { url: sixteenURL, name: 'Jim', id: 16 };
+const cardSeventeen = { url: seventeenURL, name: 'John John', id: 17 };
 
 let defaultCardArray = [
   cardOne,
