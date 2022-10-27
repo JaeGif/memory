@@ -16,20 +16,21 @@ export default function Main() {
   const randomizeCards = () => {
     setCardArray(shuffle(cardArray));
   };
-  /* 
+
   const onCardClick = () => {
+    console.log('made it dad');
     // check that the card has NOT yet been clicked.
     // if it has, lose, else
     // increment score and
     // randomize cards
   };
   const wasClicked = (cardID) => {};
- */
+
   return (
     <div>
       <Scoreboard />
       {isLost ? <Loss /> : <Win />}
-      <CardContainer cardArray={cardArray} />
+      <CardContainer onClick={onCardClick} cardArray={cardArray} />
     </div>
   );
 }
