@@ -6,7 +6,10 @@
 }
 .cardWrapper {
   display: flex;
+  min-height: calc(16vh + 1rem);
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: solid rgba(255, 192, 203, 0.5) 5px;
+  background-color: rgba(0, 0, 255, 0.33);
 }
