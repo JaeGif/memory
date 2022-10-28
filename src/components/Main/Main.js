@@ -22,17 +22,27 @@ export default function Main() {
   };
 
   const onCardClick = (id) => {
-    setClicked([...clicked, id]);
-    randomizeCards();
-    setScore(score + 1);
-
-    console.log('made it dad');
-    console.log(score);
+    if (!isAlreadyClicked(id, clicked)) {
+      setClicked([...clicked, id]);
+      randomizeCards();
+      setScore(score + 1);
+    } else {
+      setIsLost(true);
+      console.log('lose');
+    }
 
     // check that the card has NOT yet been clicked.
     // if it has, lose, else
     // increment score and
     // randomize cards
+  };
+  const isAlreadyClicked = (id, clickedArray) => {
+    for (let i = 0; i < clickedArray.length; i++) {
+      if (id === clickedArray[i]) {
+        return true;
+      }
+    }
+    return false;
   };
 
   return (
