@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Scoreboard from '../Scoreboard/Scoreboard';
-
 import CardContainer from '../CardContainer/CardContainer';
 import { useState } from 'react';
 import defaultCardArray from './defaults';

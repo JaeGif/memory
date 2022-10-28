@@ -1,0 +1,29 @@
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+  background-color: brown;
+}
+.footerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+  background-color: brown;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+  margin-top: 5vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footerContainer:visited {
+  color: black;
+}
+.footerContainer:link {
+  text-decoration: none;
+}
+.githubIcon {
+  height: 5vh;
+}
