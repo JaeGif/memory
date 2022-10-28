@@ -9,11 +9,13 @@ import shuffle from '../shuffle';
 
 export default function Main() {
   const [isLost, setIsLost] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [clicked, setClicked] = useState([]);
   const [cardArray, setCardArray] = useState(defaultCardArray);
+
   useEffect(() => {
-    console.log('aync made it dad');
     console.log(clicked);
   }, [clicked]);
 
@@ -22,19 +24,17 @@ export default function Main() {
   };
 
   const onCardClick = (id) => {
+    if (clicked.length === cardArray.length) {
+      return gameOverFunction();
+    }
     if (!isAlreadyClicked(id, clicked)) {
       setClicked([...clicked, id]);
       randomizeCards();
       setScore(score + 1);
     } else {
       setIsLost(true);
-      console.log('lose');
+      gameOverFunction();
     }
-
-    // check that the card has NOT yet been clicked.
-    // if it has, lose, else
-    // increment score and
-    // randomize cards
   };
   const isAlreadyClicked = (id, clickedArray) => {
     for (let i = 0; i < clickedArray.length; i++) {
@@ -45,10 +45,43 @@ export default function Main() {
     return false;
   };
 
+  const updateHighScore = () => {
+    if (score > highScore) {
+      setHighScore(score);
+    } else {
+      return;
+    }
+  };
+
+  const gameOverFunction = () => {
+    setGameOver(true);
+    updateHighScore();
+  };
+
+  const resetGame = () => {
+    console.log('clicked');
+    setGameOver(false);
+    setIsLost(false);
+    setScore(0);
+    setClicked([]);
+    setCardArray(defaultCardArray);
+  };
+
   return (
     <div>
-      <Scoreboard />
-      {isLost ? <Loss /> : <Win />}
+      <Scoreboard score={score} highScore={highScore} />
+      {gameOver ? (
+        <div>
+          {' '}
+          {isLost ? (
+            <Loss onClick={resetGame} score={score} />
+          ) : (
+            <Win onClick={resetGame} score={score} />
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
       <CardContainer onClick={onCardClick} cardArray={cardArray} />
     </div>
   );
