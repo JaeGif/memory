@@ -11,16 +11,18 @@ export default function Main() {
   const [isLost, setIsLost] = useState(false);
   const [score, setScore] = useState(0);
   const [clicked, setClicked] = useState([]);
-
-  let [cardArray, setCardArray] = useState(defaultCardArray);
+  const [cardArray, setCardArray] = useState(defaultCardArray);
+  useEffect(() => {
+    console.log('aync made it dad');
+    console.log(clicked);
+  }, [clicked]);
 
   const randomizeCards = () => {
     setCardArray([...shuffle(cardArray)]);
   };
 
-  const onCardClick = (key) => {
-    /*     setClicked([...clicked, key]);
-     */
+  const onCardClick = (id) => {
+    setClicked([...clicked, id]);
     randomizeCards();
     setScore(score + 1);
 
