@@ -1,23 +1,29 @@
 import React, { useEffect } from 'react';
 import Scoreboard from '../Scoreboard/Scoreboard';
-import Win from '../Win/Win';
-import Loss from '../Loss/Loss';
+
 import CardContainer from '../CardContainer/CardContainer';
 import { useState } from 'react';
 import defaultCardArray from './defaults';
 import shuffle from '../shuffle';
 
 export default function Main() {
-  const [isLost, setIsLost] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
+  const checkForStoredHighScore = () => {
+    if (localStorage.getItem('highScore') === null) {
+      return 0;
+    } else {
+      return localStorage.getItem('highScore');
+    }
+  };
+
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
+  const [highScore, setHighScore] = useState(checkForStoredHighScore());
   const [clicked, setClicked] = useState([]);
   const [cardArray, setCardArray] = useState(defaultCardArray);
 
   useEffect(() => {
-    console.log(clicked);
-  }, [clicked]);
+    updateHighScore();
+  });
+  useEffect(() => {});
 
   const randomizeCards = () => {
     setCardArray([...shuffle(cardArray)]);
@@ -32,7 +38,6 @@ export default function Main() {
       randomizeCards();
       setScore(score + 1);
     } else {
-      setIsLost(true);
       gameOverFunction();
     }
   };
@@ -48,20 +53,18 @@ export default function Main() {
   const updateHighScore = () => {
     if (score > highScore) {
       setHighScore(score);
+      localStorage.setItem('highScore', highScore + 1);
     } else {
       return;
     }
   };
 
   const gameOverFunction = () => {
-    setGameOver(true);
     updateHighScore();
+    resetGame();
   };
 
   const resetGame = () => {
-    console.log('clicked');
-    setGameOver(false);
-    setIsLost(false);
     setScore(0);
     setClicked([]);
     setCardArray(defaultCardArray);
@@ -70,18 +73,6 @@ export default function Main() {
   return (
     <div>
       <Scoreboard score={score} highScore={highScore} />
-      {gameOver ? (
-        <div>
-          {' '}
-          {isLost ? (
-            <Loss onClick={resetGame} score={score} />
-          ) : (
-            <Win onClick={resetGame} score={score} />
-          )}
-        </div>
-      ) : (
-        <></>
-      )}
       <CardContainer onClick={onCardClick} cardArray={cardArray} />
     </div>
   );

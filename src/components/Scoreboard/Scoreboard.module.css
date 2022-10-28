@@ -1,0 +1,10 @@
+.scoreBoardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  background-color: brown;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+  margin-bottom: 5vh;
+}
